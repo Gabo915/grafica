@@ -1,26 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { SocketIoModule, SocketIoConfig} from 'ngx-socket-io';
-import { environment } from 'src/environments/environment';
-import {NgxChartsModule}  from '@swimlane/ngx-charts'
 
-const config: SocketIoConfig = {
-  url: environment.wsUrl, options: {transports:['websocket', 'polling']}
-};
-
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GraficaComponent } from './components/grafica/grafica.component';
+import { RenderComponent } from './components/render/render.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GraficaComponent
+    RenderComponent
   ],
   imports: [
     BrowserModule,
-    SocketIoModule.forRoot(config),
-    NgxChartsModule
+    AppRoutingModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
